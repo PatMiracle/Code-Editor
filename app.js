@@ -1,3 +1,38 @@
+// Select Element
+const editor = document.querySelector(".editor")
+const codeBoxes = [...document.querySelectorAll("textarea")]
+const btnContainer = document.querySelector(".btn-container")
+const tabBtn = document.querySelectorAll(".tab-btn")
+
+// Switch Tabs
+editor.addEventListener("click", (e)=>{
+    const id = e.target.dataset.id
+    if(id){
+        // remove active class from other buttons
+        tabBtn.forEach((btn)=>{
+            btn.classList.remove("active")
+            e.target.classList.add("active")
+        })
+        
+        // remove active class from other buttons
+        codeBoxes.forEach((box)=>{
+            box.classList.remove("active")
+        })
+
+        const element = document.getElementById(id)
+        element.classList.add("active")
+    }
+})
+
+// Add CodeBox Values to Local Storage
+const [htmlDOM, cssDOM, jsDOM] = codeBoxes
+codeBoxes.forEach((box)=>{
+    box.addEventListener("keyup", ()=>{
+        addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)
+    })
+})
+
+
 // Get Local Storage
 function getLocalStorage(){
     return localStorage.getItem("codeFromCodeIt")?JSON.parse(localStorage.getItem("codeFromCodeIt")):[]
@@ -18,20 +53,6 @@ function addToLocalStorage(html, css, js){
     })
     localStorage.setItem("codeFromCodeIt", JSON.stringify(codes))
 }
-
-// Select Element
-const codeBoxes = [...document.querySelectorAll("textarea")]
-const btnContainer = document.querySelector(".btn-container")
-const tabBtn = document.querySelectorAll(".tab-btn")
-
-
-
-const [htmlDOM, cssDOM, jsDOM] = codeBoxes
-codeBoxes.forEach((box)=>{
-    box.addEventListener("keyup", ()=>{
-        addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)
-    })
-})
 
 window.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("codeFromCodeIt")){
