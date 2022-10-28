@@ -34,8 +34,11 @@ a{
 .tab-btn i{
     margin-right: 0.6rem;
 }
-.tab-btn.active, .tab-btn:hover{
+.tab-btn.active{
     background-color: #474849;
+}
+.tab-btn:hover{
+    background-color: #4c4d4dee;
 }
 textarea{
     width: 100%;
