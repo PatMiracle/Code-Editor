@@ -19,10 +19,14 @@ function addToLocalStorage(html, css, js){
     localStorage.setItem("codeFromCodeIt", JSON.stringify(codes))
 }
 
+// Select Element
 const codeBoxes = [...document.querySelectorAll("textarea")]
+const btnContainer = document.querySelector(".btn-container")
+const tabBtn = document.querySelectorAll(".tab-btn")
+
+
 
 const [htmlDOM, cssDOM, jsDOM] = codeBoxes
-
 codeBoxes.forEach((box)=>{
     box.addEventListener("keyup", ()=>{
         addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)

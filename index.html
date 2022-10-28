@@ -5,12 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code It</title>
+    <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <textarea class="html-code" cols="30" rows="10"></textarea>
-    <textarea class="css-code" cols="30" rows="10"></textarea>
-    <textarea class="js-code" cols="30" rows="10"></textarea>
+    <section class="code-center">
+      <article>
+        <div class="btn-container">
+          <button class="tab-btn active">
+            <i class="fa fa-code"></i> index.html
+          </button>
+          <button class="tab-btn">
+            <i class="fa fa-hashtag"></i> styles.css
+          </button>
+          <button class="tab-btn"><i class="fab fa-js"></i> app.js</button>
+        </div>
+        <div class="editor">
+          <textarea class="active"></textarea>
+          <textarea></textarea>
+          <textarea></textarea>
+        </div>
+      </article>
+    </section>
     <div class="preview"></div>
     <a href="preview.html">preview</a>
     <script src="./app.js"></script>

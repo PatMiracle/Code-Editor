@@ -1,0 +1,54 @@
+/* global styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style-type: none;
+}
+button{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+
+/* --- Code Center --- */
+.code-center{
+    width: 90%;
+    margin: auto;
+    padding: 3rem 0;
+}
+.btn-container{
+    display: flex;
+}
+.tab-btn{
+    padding: 0.6rem 1rem;
+    background:#5f6164;
+    border: transparent;
+    border-right: 1px solid #303841;
+    color: #ddd;
+    font-size: 1rem;
+}
+.tab-btn i{
+    margin-right: 0.6rem;
+}
+.tab-btn.active, .tab-btn:hover{
+    background-color: #474849;
+}
+textarea{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 20rem;
+    background: #303841;
+    font-size: 1.07rem;
+    padding: 0.5rem;
+    line-height: 1.5;
+    color: #ddd;
+    display: none;
+}
+textarea.active{
+    display: block;
+}
