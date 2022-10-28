@@ -1,28 +1,41 @@
-const textCode = document.querySelector(".text-code")
-const preview = document.querySelector(".preview")
-
-const getLocalStorage = () => {
-    return localStorage.getItem("codes")?JSON.parse(localStorage.getItem("codes")):[]
+// Get Local Storage
+function getLocalStorage(){
+    return localStorage.getItem("codeFromCodeIt")?JSON.parse(localStorage.getItem("codeFromCodeIt")):[]
 }
 
-window.addEventListener("DOMContentLoaded", () =>{
-if(localStorage.getItem("codes")){
+// Add to Local Storage
+function addToLocalStorage(html, css, js){
     let codes = getLocalStorage()
 
-    textCode.value = codes[0]
-    preview.innerHTML = codes[0]
+    if(codes.length < 1){
+        codes.push({html, css, js}) 
+    }
+
+    codes.map((code)=>{
+        code.html = html 
+        code.css = css
+        code.js = js
+    })
+    localStorage.setItem("codeFromCodeIt", JSON.stringify(codes))
 }
+
+const codeBoxes = [...document.querySelectorAll("textarea")]
+
+const [htmlDOM, cssDOM, jsDOM] = codeBoxes
+
+codeBoxes.forEach((box)=>{
+    box.addEventListener("keyup", ()=>{
+        addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)
+    })
 })
 
-
-const addToLocalStorage = (item) => {
-    let codes = getLocalStorage()
+window.addEventListener("DOMContentLoaded", ()=>{
+    if(localStorage.getItem("codeFromCodeIt")){
+        const codes = JSON.parse(localStorage.getItem("codeFromCodeIt"))
+        const  [{html, css, js}] = codes
     
-    codes[0] = item
-    localStorage.setItem("codes", JSON.stringify(codes))
-}
-textCode.addEventListener("input", ()=> {
-    const value = textCode.value
-    addToLocalStorage(value)
-    preview.innerHTML = value 
+        htmlDOM.value = html
+        cssDOM.value = css
+        jsDOM.textContent = js        
+    }
 })
