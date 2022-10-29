@@ -10,27 +10,31 @@
   </head>
   <body>
     <!-- Code Editor -->
-    <section class="code-center">
-      <article class="editor">
-        <div class="btn-container">
-          <button class="tab-btn active" data-id="html">
-            <i class="fa fa-code"></i> index.html
-          </button>
-          <button class="tab-btn" data-id="css">
-            <i class="fa fa-hashtag"></i> styles.css
-          </button>
-          <button class="tab-btn" data-id="js">
-            <i class="fab fa-js"></i> app.js
-          </button>
-        </div>
-        <div>
-          <textarea class="active" id="html"></textarea>
-          <textarea id="css"></textarea>
-          <textarea id="js"></textarea>
+    <section class="editor-section">
+      <article>
+        <div class="code-center">
+          <div class="editor">
+            <div class="btn-container">
+              <button class="tab-btn active" data-id="html">
+                <i class="fa fa-code"></i> index.html
+              </button>
+              <button class="tab-btn" data-id="css">
+                <i class="fa fa-hashtag"></i> styles.css
+              </button>
+              <button class="tab-btn" data-id="js">
+                <i class="fab fa-js"></i> app.js
+              </button>
+            </div>
+            <div>
+              <textarea class="active" id="html"></textarea>
+              <textarea id="css"></textarea>
+              <textarea id="js"></textarea>
+            </div>
+          </div>
+          <iframe src="./preview.html" frameborder="0" class="preview"></iframe>
         </div>
       </article>
     </section>
-    <div class="preview"></div>
     <a href="preview.html">preview</a>
     <script src="./app.js"></script>
   </body>

@@ -3,6 +3,8 @@ const editor = document.querySelector(".editor")
 const codeBoxes = [...document.querySelectorAll("textarea")]
 const btnContainer = document.querySelector(".btn-container")
 const tabBtn = document.querySelectorAll(".tab-btn")
+const preview = document.querySelector(".preview")
+
 
 // Switch Tabs
 editor.addEventListener("click", (e)=>{
@@ -29,6 +31,7 @@ const [htmlDOM, cssDOM, jsDOM] = codeBoxes
 codeBoxes.forEach((box)=>{
     box.addEventListener("keyup", ()=>{
         addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)
+        preview.src = './preview.html'
     })
 })
 
@@ -54,6 +57,8 @@ function addToLocalStorage(html, css, js){
     localStorage.setItem("codeFromCodeIt", JSON.stringify(codes))
 }
 
+
+
 window.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("codeFromCodeIt")){
         const codes = JSON.parse(localStorage.getItem("codeFromCodeIt"))
@@ -64,3 +69,4 @@ window.addEventListener("DOMContentLoaded", ()=>{
         jsDOM.textContent = js        
     }
 })
+
