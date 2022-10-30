@@ -1,7 +1,10 @@
+import {getLocalStorage} from './utils/local_storage'
+
+console.log(getLocalStorage);
+
 // Select Element
 const editor = document.querySelector(".editor")
 const codeBoxes = [...document.querySelectorAll("textarea")]
-const btnContainer = document.querySelector(".btn-container")
 const tabBtn = document.querySelectorAll(".tab-btn")
 const preview = document.querySelector(".preview")
 
@@ -34,30 +37,6 @@ codeBoxes.forEach((box)=>{
         preview.src = './preview.html'
     })
 })
-
-
-// Get Local Storage
-function getLocalStorage(){
-    return localStorage.getItem("codeFromCodeIt")?JSON.parse(localStorage.getItem("codeFromCodeIt")):[]
-}
-
-// Add to Local Storage
-function addToLocalStorage(html, css, js){
-    let codes = getLocalStorage()
-
-    if(codes.length < 1){
-        codes.push({html, css, js}) 
-    }
-
-    codes.map((code)=>{
-        code.html = html 
-        code.css = css
-        code.js = js
-    })
-    localStorage.setItem("codeFromCodeIt", JSON.stringify(codes))
-}
-
-
 
 window.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("codeFromCodeIt")){
