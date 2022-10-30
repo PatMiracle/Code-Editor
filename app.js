@@ -1,6 +1,4 @@
-import {getLocalStorage} from './utils/local_storage'
-
-console.log(getLocalStorage);
+import {getLocalStorage, addToLocalStorage} from './utils/local_storage.js'
 
 // Select Element
 const editor = document.querySelector(".editor")
@@ -34,7 +32,7 @@ const [htmlDOM, cssDOM, jsDOM] = codeBoxes
 codeBoxes.forEach((box)=>{
     box.addEventListener("keyup", ()=>{
         addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)
-        preview.src = './preview.html'
+        preview.src = './preview/preview.html'
     })
 })
 
