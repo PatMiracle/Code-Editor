@@ -1,10 +1,10 @@
 // Get Local Storage
-export const getLocalStorage = ()=>{
+export function getLocalStorage(){
     return localStorage.getItem("codeFromCodeIt")?JSON.parse(localStorage.getItem("codeFromCodeIt")):[]
 }
 
 // Add to Local Storage
-export const addToLocalStorage = (html, css, js)=>{
+export function addToLocalStorage(html, css, js){
     let codes = getLocalStorage()
 
     if(codes.length < 1){
@@ -18,4 +18,3 @@ export const addToLocalStorage = (html, css, js)=>{
     })
     localStorage.setItem("codeFromCodeIt", JSON.stringify(codes))
 }
-
