@@ -4,7 +4,7 @@ export function getLocalStorage(){
 }
 
 // Add to Local Storage
-export function addToLocalStorage(html, css, js){
+export function addToLocalStorage(html, css, js, getLocalStorage){
     let codes = getLocalStorage()
 
     if(codes.length < 1){

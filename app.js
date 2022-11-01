@@ -31,7 +31,7 @@ editor.addEventListener("click", (e)=>{
 const [htmlDOM, cssDOM, jsDOM] = codeBoxes
 codeBoxes.forEach((box)=>{
     box.addEventListener("keyup", ()=>{
-        addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value)
+        addToLocalStorage(htmlDOM.value, cssDOM.value, jsDOM.value, getLocalStorage)
         preview.src = './preview/preview.html'
     })
 })
@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     
         htmlDOM.value = html
         cssDOM.value = css
-        jsDOM.textContent = js        
+        jsDOM.value = js        
     }
 })
 
